@@ -32,10 +32,10 @@
     // Once all dependencies are fetched, `zig build` no longer requires
     // internet connectivity.
     .dependencies = .{
-        .fuzzig = .{
-            .url = "https://codeberg.org/fjebaker/fuzzig/archive/main.tar.gz",
-            .hash = "fuzzig-0.1.3-Ji0xit9oAQAxavWq4UDsI9S0nsUVOsqZbxUbZUzlKu4x",
-        },
+        //.fuzzig = .{
+        //    .url = "https://codeberg.org/fjebaker/fuzzig/archive/main.tar.gz",
+        //    .hash = "fuzzig-0.1.3-Ji0xit9oAQAxavWq4UDsI9S0nsUVOsqZbxUbZUzlKu4x",
+        //},
     },
     .paths = .{
         "build.zig",

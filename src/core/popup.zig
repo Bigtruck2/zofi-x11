@@ -233,12 +233,20 @@ pub const Popup = struct {
                 @as(i128, std.math.maxInt(c_int)),
             ));
 
-            var fds = [_]x11.pollfd{.{
-                .fd = x_fd,
-                .events = x11.POLLIN,
-                .revents = 0,
-            }};
-            if (x11.poll(&fds, 1, timeout_ms) < 0) continue;
+            //var fds = [_]x11.pollfd{.{
+            //    .fd = x_fd,
+            //    .events = x11.POLLIN,
+            //    .revents = 0,
+            //}};
+            var fds = [_]std.posix.pollfd{
+    .{ 
+        .fd = x_fd, 
+        .events = std.posix.POLL.IN, 
+        .revents = 0 
+    },
+};
+            const ready = std.posix.poll(&fds, timeout_ms) catch 0;
+            if (ready == 0) continue;
         }
     }
 
